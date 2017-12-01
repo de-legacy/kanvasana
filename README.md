@@ -1,4 +1,4 @@
-# y
+# Kanvasana
 
 > Simple serverless Kanban project with Vuex and Firebase.
 
