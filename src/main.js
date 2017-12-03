@@ -4,9 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'
+import VModal from 'vue-js-modal'
 
-/*
-Vue.prototype.$db = firebaseApp.database();*/
+
+Vue.use(VModal, {
+  dialog: true
+})
 
 Vue.config.productionTip = false
 

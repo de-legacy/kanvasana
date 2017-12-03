@@ -1,51 +1,22 @@
 <template>
   <div id="app">
-    <p>{{ tasks }}</p>
-    <p>{{ testing }}</p>
+    <MainHeader></MainHeader>
 
-    <!-- <button class="create" @click="newTesting">Update State Testing</button>
-    <button class="create" @click="newTask">Create Task to Firebase</button>
- -->
     <router-view/>
   </div>
 </template>
 
 <script>
-// import { mapActions, mapMutations, mapState } from 'vuex'
+import MainHeader from '@/components/MainHeader'
 
 export default {
   name: 'app',
   data() {
     return {
-      // filteredTask : []
     }
   },
-
-  methods: {
-
-    // newTesting() {
-    //   this.setTesting('New TEST');
-    // },
-
-    // newTask() {
-    //   this.setQty(1)
-    // },
-
-    // getFilteredTask(status){
-    //   // this.filteredTask = this.getTasksByStatus(status)
-    // }
-  },
-
-  computed: {
-    // ...mapState([
-    //   'tasks',
-    //   'testing'
-    // ])
-  },
-
-  created() {
-    // this.getTasks();
-    // this.getTesting();
+  components: {
+    MainHeader
   }
 }
 </script>
@@ -54,4 +25,55 @@ export default {
 #app {
 
 }
+
+.flex-row {
+  display: flex;
+  flex-wrap: nowrap;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.col-8 {
+  width: 80%;
+}
+
+.col-2 {
+  width: 20%;
+}
+
+.main-header {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  background: teal;
+}
+
+.main-header a {
+  color:  #fafafa;
+}
+
+.main-header a:hover {
+  text-decoration: none;
+  color:  gold;
+}
+
+.site-title {
+  margin: 0;
+}
+
+.u-full-width {
+  width: 100%;
+}
+
+.modal-content {
+  padding: 1rem 2rem;
+}
+
+.modal-title {
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  margin-bottom: 2rem;
+}
+
 </style>
