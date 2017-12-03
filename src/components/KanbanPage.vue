@@ -9,7 +9,7 @@
 							<div class="panel panel-default kanban-item" v-for="(task, index) in backlogTasks" :key="index">
 								<div class="panel-heading">
 									 <a role="button" data-toggle="collapse" data-parent="#backlogCol" :href="`#backlog-${index}`" :title="task.title">{{ task.title }}</a>
-									 <a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#127335;</a>
+									 <a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#128473;</a>
 								</div>
 								<!-- /.panel-heading -->
 								<div :id="`backlog-${index}`" class="panel-body panel-collapse collapse">
@@ -39,7 +39,7 @@
 								<div class="panel-heading">
 									<a role="button" data-toggle="collapse" data-parent="#todoCol"  :href="`#todo-${index}`" :title="task.title">{{ task.title }}</a>
 
-									<a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#127335;</a>
+									<a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#128473;</a>
 								</div>
 								<!-- /.panel-heading -->
 								<div :id="`todo-${index}`" class="panel-body panel-collapse collapse">
@@ -69,7 +69,7 @@
 								<div class="panel-heading">
 									<a role="button" data-toggle="collapse" data-parent="#doingCol"  :href="`#doing-${index}`" :title="task.title">{{ task.title }}</a>
 
-									<a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#127335;</a>
+									<a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#128473;</a>
 								</div>
 								<!-- /.panel-heading -->
 								<div :id="`doing-${index}`" class="panel-body panel-collapse collapse">
@@ -98,7 +98,7 @@
 								<div class="panel-heading">
 									<a role="button" data-toggle="collapse" data-parent="#doneCol"  :href="`#done-${index}`" :title="task.title">{{ task.title }}</a>
 
-									<a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#127335;</a>
+									<a href="#" class="btn-delete" @click.prevent="deleteTask(index)">&#128473;</a>
 								</div>
 
 								<!-- /.panel-heading -->
