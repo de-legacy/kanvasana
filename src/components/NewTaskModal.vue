@@ -26,7 +26,7 @@
 				<input type="hidden" id="status" name="status" ref="status" class="form-control" value="backlog"/>
 			</form>
 
-			<button class="btn btn-primary" @click="$modal.hide('new-task-modal')">Add New</button>
+			<button class="btn btn-primary" @click="doNewTask">Add New</button>
       <button class="btn btn-danger btn-close" @click="$modal.hide('new-task-modal')">Close</button>
 
     </div>
@@ -34,11 +34,31 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 	export default {
 		name: 'NewTaskModal',
 		data () {
 			return {
 
+			}
+		},
+
+		methods: {
+			...mapActions([
+				'setNewTask'
+			]),
+
+			doNewTask() {
+				let task = {
+					title : this.$refs.title.value,
+					description : this.$refs.description.value,
+					point : this.$refs.point.value,
+					assignedTo : this.$refs.assignedTo.value,
+					status : this.$refs.status.value,
+				}
+
+				this.createNewTask(task)
 			}
 		}
 	}

@@ -47,22 +47,6 @@ export default new Vuex.Store({
 		setDoneTask(state, payload) {
 			state.doneTasks = payload;
 		},
-
-		setQty(state, payload) {
-				db.ref('/tasks/-L-CKNmVkmFfTAGjRRBy').update({
-					// title: "Task-"+payload,
-					// description: "Description-"+payload,
-					// point: 9,
-					status: 'doing',
-					// assignedTo: "Marko"
-				}).key;
-
-				state.item3 = payload;
-		},
-
-		setTesting(state, payload) {
-			state.testing = payload;
-		}
 	},
 
 	actions: {
@@ -96,10 +80,12 @@ export default new Vuex.Store({
 			})
 		},
 
-		getTesting(context) {
-			db.ref('/testing').on('value', (snapshot) => {
-				context.commit('setTesting', snapshot.val());
-			})
-		}
+		createNewTask(context, payload) {
+			db.ref('/tasks').push(payload).key
+		},
+
+		removeTask(context, payload) {
+			db.ref('/tasks').child(payload).remove();
+		},
 	}
 })
