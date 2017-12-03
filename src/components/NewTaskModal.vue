@@ -46,7 +46,7 @@ import { mapActions } from 'vuex'
 
 		methods: {
 			...mapActions([
-				'setNewTask'
+				'createNewTask'
 			]),
 
 			doNewTask() {

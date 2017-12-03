@@ -87,5 +87,11 @@ export default new Vuex.Store({
 		removeTask(context, payload) {
 			db.ref('/tasks').child(payload).remove();
 		},
+
+		editTaskStatus(context, payload) {
+			db.ref(`/tasks/${payload.index}`).update({
+				status: payload.status
+			});
+		}
 	}
 })

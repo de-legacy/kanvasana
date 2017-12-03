@@ -43,6 +43,8 @@
 								</div>
 								<!-- /.panel-heading -->
 								<div :id="`todo-${index}`" class="panel-body panel-collapse collapse">
+									<label>Description:</label>
+									<p>{{ task.description }}</p>
 									<p><label>Point:</label> {{ task.point }}</p>
 									<p><label>Assigned to:</label> {{ task.assignedTo }}</p>
 									<p><label>Status:</label> {{ task.status }}</p>
@@ -71,8 +73,11 @@
 								</div>
 								<!-- /.panel-heading -->
 								<div :id="`doing-${index}`" class="panel-body panel-collapse collapse">
+									<label>Description:</label>
+									<p>{{ task.description }}</p>
 									<p><label>Point:</label> {{ task.point }}</p>
 									<p><label>Assigned to:</label> {{ task.assignedTo }}</p>
+									<p><label>Status:</label> {{ task.status }}</p>
 
 									<button class="btn btn-warning u-full-width" @click="updateTaskStatus(index, 'todo')">Todo</button>
 									<button class="btn btn-success u-full-width" @click="updateTaskStatus(index, 'done')">Done</button>
@@ -98,8 +103,11 @@
 
 								<!-- /.panel-heading -->
 								<div :id="`done-${index}`" class="panel-body panel-collapse collapse">
+									<label>Description:</label>
+									<p>{{ task.description }}</p>
 									<p><label>Point:</label> {{ task.point }}</p>
 									<p><label>Assigned to:</label> {{ task.assignedTo }}</p>
+									<p><label>Status:</label> {{ task.status }}</p>
 
 									<button class="btn btn-info u-full-width" @click="updateTaskStatus(index, 'doing')">Doing</button>
 								</div>
@@ -133,7 +141,8 @@ import { mapActions, mapMutations, mapState } from 'vuex'
 				'getTodoTasks',
 				'getDoingTasks',
 				'getDoneTasks',
-				'removeTask'
+				'removeTask',
+				'editTaskStatus'
 			]),
 
 			...mapMutations([
@@ -145,7 +154,10 @@ import { mapActions, mapMutations, mapState } from 'vuex'
 			},
 
 			updateTaskStatus(index, status) {
-				console.log(status)
+				this.editTaskStatus({
+					index: index,
+					status: status
+				})
 			}
 		},
 
